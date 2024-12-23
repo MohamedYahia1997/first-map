@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mohamed yahia map </title>
+    <style>
+        html,
+        body,
+        #viewMap {
+            padding:0;
+            margin: 0;
+            height: 100%;
+            width: 100%;     
+        }
+    </style>
+    
+    <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css"> 
+    <script src="https://js.arcgis.com/4.30/"></script>
+    
+    <script>
+require(["esri/Map","esri/views/SceneView"], function(Map,SceneView){
+var map = new Map({
+    basemap:"topo-vector",//the map what i used
+    ground:'world-elevation'
+
+});
+var view = new SceneView({
+container:'viewMap',
+map:map,
+camera :{
+    position:{
+      x:32.522854, //الطول
+      y:15.508457,// العرض
+      z:4000000 // الارتفاع
+    },
+    tilt:30 //الزاوية للروئية
+    }
+}
+)
+});
+    </script>
+</head>
+<body>
+    <div id="viewMap"></div>
+</body>
+</html>
